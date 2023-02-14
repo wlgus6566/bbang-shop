@@ -2,14 +2,19 @@ import './App.css';
 import {Outlet} from "react-router-dom";
 import AppHeader from "./components/AppHeader";
 import StickyItem from "./components/StickyItem";
+import {AuthContextProvider} from "./components/context/AuthContext";
+import {QueryClientProvider, QueryClient} from "@tanstack/react-query";
 
+const queryClient = new QueryClient();
 function App() {
   return (
-    <>
-        <AppHeader/>
-        <Outlet/>
-        <StickyItem/>
-    </>
+      <QueryClientProvider client={queryClient}>
+        <AuthContextProvider>
+            <AppHeader/>
+            <Outlet/>
+            <StickyItem/>
+        </AuthContextProvider>
+      </QueryClientProvider>
   );
 }
 
