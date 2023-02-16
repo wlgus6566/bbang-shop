@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {BsFillPencilFill} from "react-icons/bs";
-import {useAuthContext} from "./context/AuthContext";
+import {useAuthContext} from "../context/AuthContext";
 
 export default function StickyItem() {
     const {user} = useAuthContext();
