@@ -6,7 +6,9 @@ export default function ProductCard({product, product: {id, image, title, catego
     return (
         <li className='rounded-lg shadow-md overflow-hidden cursor-pointer transition-all hover:scale-105'
             onClick={() => {navigate(`/products/${id}`, {state: {product}})}}>
-            <img className='w-full' src={image} alt={title}/>
+            <span className='img-wrap'>
+                <img className='w-full' src={image} alt={title}/>
+            </span>
             <div className='mt-2 px-2 text-lg flex justify-between items-center'>
                 <h3 className='truncate'>{title}</h3>
                 <p>￦{`${price}`}</p>

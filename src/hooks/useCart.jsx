@@ -14,7 +14,7 @@ export default function useCart() {
     const addOrUpdateItem = useMutation(
         (product) => addOrUpdateToCart(uid,product),
         {
-            onSuccess: () => queryClient.invalidateQueries(['carts', uid]) // 한 컴퓨터에서 다른 계정 접속할 떄 invalidate되지 않게
+            onSuccess: () => queryClient.invalidateQueries(['carts', uid]) // 한 컴퓨터에서 다른 계정 접속할 떄 invalidate 되지 않게
         }
     )
 

@@ -5,6 +5,7 @@ import useCart from "../hooks/useCart";
 
 export default function ProductDetail() {
     const {addOrUpdateItem} = useCart();
+    const [success, setSuccess] = useState();
     const {
         state: {
             product: {id, image, title, description, category, price, options}
@@ -16,7 +17,14 @@ export default function ProductDetail() {
     }
     const handleClick = () => {
         const product = {id, image, title, price, options: selected, quantity: 1};
-        addOrUpdateItem.mutate(product);
+        addOrUpdateItem.mutate(product, {
+            onSuccess: () => {
+                setSuccess('장바구니에 추가되었습니다.')
+                setTimeout(() => {
+                    setSuccess(null)
+                },3000)
+            }
+        });
     }
     return (
         <>
@@ -41,6 +49,7 @@ export default function ProductDetail() {
                                     ))}
                         </select>
                     </div>
+                    {success && <p className='my-2'>{success}</p>}
                     <Button text='장바구니에 추가' onClick={handleClick}/>
                 </div>
             </section>

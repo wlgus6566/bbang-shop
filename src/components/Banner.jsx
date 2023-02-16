@@ -5,8 +5,8 @@ export default function Banner() {
         <section className='h-96 relative'>
             <div className='w-full h-full bg-cover bg-banner bg-center opacity-80'></div>
             <div className='absolute w-full top-32 text-center text-gray-50 drop-shadow-2xl'>
-                <h2 className='text-6xl'>We are most alive</h2>
-                <p className='text-2xl'>when we're in love</p>
+                <h2 className='text-6xl'>Healthy & Delicious </h2>
+                <p className='text-2xl'>we're what we eat</p>
             </div>
         </section>
     )
